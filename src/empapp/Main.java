@@ -6,6 +6,8 @@ public class Main {
     public static void main(String[] args) {
         String name;
         int id;
+        double salary;
+        int age;
         EmployeeDaoIntrf dao=new EmployeeDaoImpl();
         System.out.println("---------------------------------------");
         System.out.println("Welcome to EmpApp!");
@@ -29,11 +31,12 @@ public class Main {
                     System.out.println("Enter ID: ");
                     id=sc.nextInt();
                     System.out.println("Enter name: ");
-                    name=sc.next();
+                    sc.nextLine();
+                    name=sc.nextLine();
                     System.out.println("Enter Salary: ");
-                    double salary=sc.nextDouble();
+                    salary=sc.nextDouble();
                     System.out.println("Enter age: ");
-                    int age=sc.nextInt();
+                    age=sc.nextInt();
                     emp.setId(id);
                     emp.setName(name);
                     emp.setSalary(salary);
@@ -52,8 +55,13 @@ public class Main {
                     System.out.println("Enter ID to update the details: ");
                     int empid1=sc.nextInt();
                     System.out.println("Enter the new name:");
-                    name=sc.next();
-                    dao.updateEmployee(empid1,name);
+                    sc.nextLine();
+                    name=sc.nextLine();
+                    System.out.println("Enter the new salary:");
+                    salary = sc.nextDouble();
+                    System.out.println("Enter the new age:");
+                    age = sc.nextInt();
+                    dao.updateEmployee(empid1,name,salary,age);
                     break;
                 case 5:
                     System.out.println("Enter the ID to delete");
