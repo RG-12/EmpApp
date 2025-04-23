@@ -49,9 +49,10 @@ public class EmployeeDaoImpl implements EmployeeDaoIntrf {
                         result.getString(2),
                         result.getDouble(3),
                         result.getInt(4));
-                System.out.println("---------------------------------------------");
+
 
             }
+            System.out.println("---------------------------------------------");
 
         }catch (Exception ex){
             ex.printStackTrace();
@@ -67,11 +68,13 @@ public class EmployeeDaoImpl implements EmployeeDaoIntrf {
             Statement stmt=con.createStatement();
             ResultSet result= stmt.executeQuery(query);
             while (result.next()){
+                System.out.println("---------------------------------------------");
                 System.out.format("%d\t%s\t%f\t%d\n",
                         result.getInt(1),
                         result.getString(2),
                         result.getDouble(3),
                         result.getInt(4));
+                System.out.println("---------------------------------------------");
 
             }
 
@@ -83,17 +86,20 @@ public class EmployeeDaoImpl implements EmployeeDaoIntrf {
     }
 
     @Override
-    public void updateEmployee(int id, String name) {
+    public void updateEmployee(int id, String name, double salary, int age) {
         con=DBConnection.createDBConnetion();
-        String query="update employee set name=? where id=?";
+        String query="update employee set name=?, salary=?, age=? where id=?";
         try{
             PreparedStatement pstm=con.prepareStatement(query);
             pstm.setString(1,name);
-            pstm.setInt(2,id);
+            pstm.setDouble(2,salary);
+            pstm.setInt(3,age);
+            pstm.setInt(4,id);
             int cnt = pstm.executeUpdate();
-            if(cnt!=0)
+            if(cnt!=0) {
                 System.out.println("Employee details updated successfully.");
-
+                System.out.println("---------------------------------------------");
+            }
         }catch (Exception ex){
             ex.printStackTrace();
         }
@@ -108,13 +114,17 @@ public class EmployeeDaoImpl implements EmployeeDaoIntrf {
             PreparedStatement pstm=con.prepareStatement(query);
             pstm.setInt(1,id);
             int cnt= pstm.executeUpdate();
-            if(cnt!=0)
+            if(cnt!=0) {
                 System.out.println("Employee Deleted Successfully. " + id);
-
+                System.out.println("---------------------------------------------");
+            }
         }catch (Exception ex){
             ex.printStackTrace();
         }
 
+
+    }
+}
 
     }
 }
