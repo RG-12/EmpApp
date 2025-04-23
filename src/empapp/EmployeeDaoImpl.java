@@ -35,9 +35,9 @@ public class EmployeeDaoImpl implements EmployeeDaoIntrf {
         con=DBConnection.createDBConnetion();
         String query="select * from employee";
         System.out.println("Employee Details: ");
+        System.out.println("Employee Details: ");
         System.out.println("---------------------------------------------");
-
-        System.out.format("%s\t%s\t%s\t%s\n","ID","Name","Salary","Age");
+        System.out.format("%s\t%s\t%s\t%s\n","ID","Name        ","Salary","        Age");
         System.out.println("---------------------------------------------");
 
         try{
@@ -64,11 +64,15 @@ public class EmployeeDaoImpl implements EmployeeDaoIntrf {
     public void showEmployeeBasedOnID(int id) {
         con=DBConnection.createDBConnetion();
         String query="select * from employee where id="+id;
+        System.out.println("Employee Details: ");
+        System.out.println("---------------------------------------------");
+        System.out.format("%s\t%s\t%s\t%s\n","ID","Name        ","Salary","        Age");
+        System.out.println("---------------------------------------------");
         try{
             Statement stmt=con.createStatement();
             ResultSet result= stmt.executeQuery(query);
             while (result.next()){
-                System.out.println("---------------------------------------------");
+                
                 System.out.format("%d\t%s\t%f\t%d\n",
                         result.getInt(1),
                         result.getString(2),
