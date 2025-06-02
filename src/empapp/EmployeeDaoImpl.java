@@ -12,7 +12,7 @@ public class EmployeeDaoImpl implements EmployeeDaoIntrf {
     @Override
     public void createEmployee(Employee emp) {
         con =DBConnection.createDBConnetion();
-        String query="insert into employee values(?,?,?,?)";
+        String query="INSERT INTO employee VALUES(?,?,?,?)";
         try{
             PreparedStatement pstm=con.prepareStatement(query);
             pstm.setInt(1,emp.getId());
@@ -33,7 +33,7 @@ public class EmployeeDaoImpl implements EmployeeDaoIntrf {
     @Override
     public void showAllEmployee() {
         con=DBConnection.createDBConnetion();
-        String query="select * from employee";
+        String query="SELECT * FROM employee";
         System.out.println("Employee Details: ");
         System.out.println("Employee Details: ");
         System.out.println("---------------------------------------------");
@@ -63,7 +63,7 @@ public class EmployeeDaoImpl implements EmployeeDaoIntrf {
     @Override
     public void showEmployeeBasedOnID(int id) {
         con=DBConnection.createDBConnetion();
-        String query="select * from employee where id="+id;
+        String query="SELECT * FROM employee WHERE id="+id;
         System.out.println("Employee Details: ");
         System.out.println("---------------------------------------------");
         System.out.format("%s\t%s\t%s\t%s\n","ID","Name        ","Salary","        Age");
@@ -92,7 +92,7 @@ public class EmployeeDaoImpl implements EmployeeDaoIntrf {
     @Override
     public void updateEmployee(int id, String name, double salary, int age) {
         con=DBConnection.createDBConnetion();
-        String query="update employee set name=?, salary=?, age=? where id=?";
+        String query="UPDATE employee SET name=?, salary=?, age=? WHERE id=?";
         try{
             PreparedStatement pstm=con.prepareStatement(query);
             pstm.setString(1,name);
@@ -113,7 +113,7 @@ public class EmployeeDaoImpl implements EmployeeDaoIntrf {
     @Override
     public void deleteEmployee(int id) {
         con=DBConnection.createDBConnetion();
-        String query="delete from employee where id=?";
+        String query="DELETE FROM employee WHERE id=?";
         try{
             PreparedStatement pstm=con.prepareStatement(query);
             pstm.setInt(1,id);
