@@ -2,4 +2,4 @@
 
 Enforces all CRUD Operations  
 
-(Replace and your own MySQL username and password to make the program work)
+(Replace and use your own MySQL username and password in the DBConnection.java file)
